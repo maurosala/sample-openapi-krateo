@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "sample-openapi-krateo"
+  description: "Sample OpenAPI"
+  links:
+    - url: https://github.com/maurosala/sample-openapi-krateo
+      title: "sample-openapi-krateo"
+      icon: "dashboard"
+  annotations:
+    github.com/project-slug: maurosala/sample-openapi-krateo
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: "sample-openapi-krateo"
+    backstage.io/kubernetes-label-selector: "component=sample-openapi-krateo"
+    sonarqube.org/project-key: maurosala_sample-openapi-krateo
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "user:mauro.sala_kiratech.it"
+  providesApis:
+    - sample-openapi-krateo-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sample-openapi-krateo-api
+  description: Todo API
+  links:
+    - url: https://krateo.io
+      title: "krateo.io"
+      icon: "dashboard"
+  tags:
+    - openapi
+    - rest
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: "user:mauro.sala_kiratech.it"
+  definition:
+    $text: https://github.com/maurosala/sample-openapi-krateo/blob/main/openapi.yaml

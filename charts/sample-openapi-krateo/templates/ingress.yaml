@@ -1,0 +1,21 @@
+{{- if .Values.app }}
+---
+{{- end }}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: sample-openapi-ingress
+  labels: {{- include "common.labels.standard" . | nindent 4 }}
+    component: {{ .Release.Namespace }}
+  annotations:
+    kubernetes.io/ingress.class: 'kong'
+    konghq.com/plugins: <kong-spec-expose-example>
+spec:
+  rules:
+    - host: {{ .Values.apiUrl }}
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: sample-openapi-svc
+              servicePort: 8080

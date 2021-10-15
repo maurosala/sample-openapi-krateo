@@ -1,0 +1,8 @@
+site_name: "Sample OpenAPI"
+site_description: "sample-openapi-krateo"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

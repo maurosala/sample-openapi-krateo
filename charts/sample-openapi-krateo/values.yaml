@@ -1,0 +1,4 @@
+images:
+  api: ghcr.io/maurosala/sample-openapi-krateo:latest
+
+apiUrl: swagger-sample.krateo.io
