@@ -1,1 +1,3 @@
 # Sample OpenAPI
+
+andrebbe scritto meglio...
